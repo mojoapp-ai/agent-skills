@@ -16,7 +16,7 @@ Each skill is plain text. No API calls. No telemetry. Nothing happens to your mo
 
 ## The skills
 
-### [`mojo-food-log/`](mojo-food-log/) — analyze a meal, log it to mojo
+### [`skills/mojo-food-log/`](skills/mojo-food-log/) — analyze a meal, log it to mojo
 
 When you upload a food photo or describe what you ate, the agent acts as a registered dietitian, estimates calories + macros + fiber, and produces a one-tap **Import to mojo** link.
 
@@ -27,7 +27,7 @@ When you upload a food photo or describe what you ate, the agent acts as a regis
 
 Uses the verbatim prompt that mojo ships in-app for copy-pasting into other LLMs, so the experience stays consistent.
 
-### [`mojo-glp1-knowledge/`](mojo-glp1-knowledge/) — your knowledgeable peer for GLP-1 questions
+### [`skills/mojo-glp1-knowledge/`](skills/mojo-glp1-knowledge/) — your knowledgeable peer for GLP-1 questions
 
 When you ask about Mounjaro, Ozempic, Wegovy, Zepbound, side effects, dosing, pen mechanics, or storage, the agent answers thoughtfully — drawing on a curated knowledge base (Mounjaro KwikPen specifics, common community misconceptions corrected, residual-medication guidance) plus its own medical knowledge.
 
@@ -37,7 +37,7 @@ When you ask about Mounjaro, Ozempic, Wegovy, Zepbound, side effects, dosing, pe
 
 Always pairs the answer with a clear "I'm not your doctor" disclaimer for anything actionable.
 
-### [`mojo-app-docs/`](mojo-app-docs/) — answers about the mojo app itself
+### [`skills/mojo-app-docs/`](skills/mojo-app-docs/) — answers about the mojo app itself
 
 The full user-facing documentation site (the same one at [docs.mojoapp.ai](https://docs.mojoapp.ai)) is bundled in four languages (`en`, `zh-TW`, `zh-Hant-HK`, `zh-Hans`). When you ask "how do I cancel my subscription", "how does the streak counter work", or "where do I enter my body fat", the agent reads the matching page and answers in your language.
 
@@ -51,17 +51,17 @@ The full user-facing documentation site (the same one at [docs.mojoapp.ai](https
 git clone https://github.com/mojoapp-ai/agent-skills.git ~/agent-skills
 
 # Install any subset of skills — or all of them
-cp -r ~/agent-skills/mojo-food-log         ~/.claude/skills/
-cp -r ~/agent-skills/mojo-glp1-knowledge   ~/.claude/skills/
-cp -r ~/agent-skills/mojo-app-docs       ~/.claude/skills/
+cp -r ~/agent-skills/skills/mojo-food-log         ~/.claude/skills/
+cp -r ~/agent-skills/skills/mojo-glp1-knowledge   ~/.claude/skills/
+cp -r ~/agent-skills/skills/mojo-app-docs       ~/.claude/skills/
 ```
 
 To stay in sync with upstream updates, symlink instead of copying:
 
 ```bash
-ln -s ~/agent-skills/mojo-food-log         ~/.claude/skills/mojo-food-log
-ln -s ~/agent-skills/mojo-glp1-knowledge   ~/.claude/skills/mojo-glp1-knowledge
-ln -s ~/agent-skills/mojo-app-docs       ~/.claude/skills/mojo-app-docs
+ln -s ~/agent-skills/skills/mojo-food-log         ~/.claude/skills/mojo-food-log
+ln -s ~/agent-skills/skills/mojo-glp1-knowledge   ~/.claude/skills/mojo-glp1-knowledge
+ln -s ~/agent-skills/skills/mojo-app-docs       ~/.claude/skills/mojo-app-docs
 ```
 
 Then `cd ~/agent-skills && git pull` whenever you want the latest.
@@ -82,7 +82,7 @@ The link `mojo-food-log` generates — `https://api.mojoapp.ai/nutrition/add?...
 
 Importing food into the user's log requires a **mojo Premium subscription**. Free users will see a paywall.
 
-Full parameter spec: [`mojo-food-log/references/deep-link-spec.md`](mojo-food-log/references/deep-link-spec.md).
+Full parameter spec: [`skills/mojo-food-log/references/deep-link-spec.md`](skills/mojo-food-log/references/deep-link-spec.md).
 
 ---
 
@@ -106,4 +106,4 @@ Full parameter spec: [`mojo-food-log/references/deep-link-spec.md`](mojo-food-lo
 
 ## License
 
-[MIT](LICENSE). Use it, fork it, embed it, modify it. Underlying user-docs content (in `mojo-app-docs/references/`) is © mojoapp.ai and bundled here under permission.
+[MIT](LICENSE). Use it, fork it, embed it, modify it. Underlying user-docs content (in `skills/mojo-app-docs/references/`) is © mojoapp.ai and bundled here under permission.

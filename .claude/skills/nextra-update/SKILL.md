@@ -1,15 +1,15 @@
 ---
 name: nextra-update
-description: "Use when the user says \"sync docs\", \"update nextra\", \"同步文件\", \"docs 同步\", \"refresh app docs\", or otherwise wants to pull the latest user-facing docs from the mojo-apps nextra site into mojo-app-docs/references/. Compares, diff-previews, commits and pushes — does not change any text on the way through."
+description: "Use when the user says \"sync docs\", \"update nextra\", \"同步文件\", \"docs 同步\", \"refresh app docs\", or otherwise wants to pull the latest user-facing docs from the mojo-apps nextra site into skills/mojo-app-docs/references/. Compares, diff-previews, commits and pushes — does not change any text on the way through."
 ---
 
 # nextra-update
 
-Mirror the user-facing docs from the `mojo-apps` repo's `nextra/content/` into this repo's `mojo-app-docs/references/`, so the bundled skill reflects what `docs.mojoapp.ai` is currently publishing.
+Mirror the user-facing docs from the `mojo-apps` repo's `nextra/content/` into this repo's `skills/mojo-app-docs/references/`, so the bundled skill reflects what `docs.mojoapp.ai` is currently publishing.
 
 ## Prerequisites
 
-- You are at the repo root: `agent-skills/` with `mojo-app-docs/references/` visible.
+- You are at the repo root: `agent-skills/` with `skills/mojo-app-docs/references/` visible.
 - The mojo-apps repo is checked out locally. By default it's expected at `/Users/Hana/Agents/mojo/repos/mojo-apps`. Override with `MOJO_APPS_PATH=/some/other/path` if needed.
 - Working tree of `agent-skills` is clean.
 
@@ -48,7 +48,7 @@ echo "Source SHA: $NEXTRA_SHA"
 ## Step 3 — Mirror with rsync
 
 ```bash
-TARGET="$(git rev-parse --show-toplevel)/mojo-app-docs/references"
+TARGET="$(git rev-parse --show-toplevel)/skills/mojo-app-docs/references"
 
 rsync -av --delete \
   "$NEXTRA/" \
@@ -64,14 +64,14 @@ Notes on the flags:
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
-git status --short mojo-app-docs/references
-git diff --stat mojo-app-docs/references | tail -20
+git status --short skills/mojo-app-docs/references
+git diff --stat skills/mojo-app-docs/references | tail -20
 ```
 
 Show the user the file-count and line-count summary. If they want to see specific changes:
 
 ```bash
-git diff mojo-app-docs/references/en/faq.mdx
+git diff skills/mojo-app-docs/references/en/faq.mdx
 ```
 
 ## Step 5 — Confirm with the user before committing
@@ -84,10 +84,10 @@ The diff may be huge or zero. Two paths:
 ## Step 6 — Commit
 
 ```bash
-git add mojo-app-docs/references
+git add skills/mojo-app-docs/references
 git commit -m "docs(app-docs): sync from nextra @ $NEXTRA_SHA
 
-Mirrored $MOJO_APPS/nextra/content/ → mojo-app-docs/references/.
+Mirrored $MOJO_APPS/nextra/content/ → skills/mojo-app-docs/references/.
 $(git diff --cached --stat | tail -1)"
 ```
 

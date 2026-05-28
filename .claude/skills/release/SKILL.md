@@ -9,7 +9,7 @@ Cut a new release of `mojoapp-ai/agent-skills`. Designed to be run from inside t
 
 ## Prerequisites
 
-- You are at the repo root: `agent-skills/` with `mojo-food-log/`, `mojo-glp1-knowledge/`, `mojo-app-docs/` visible.
+- You are at the repo root: `agent-skills/` with `skills/`, `.claude/`, `README.md`, `CHANGELOG.md` visible.
 - Working tree is clean — no uncommitted changes (`git status` shows nothing).
 - `gh` CLI is logged in for both `hanamizuki` (default) and `mojoapp-ai` accounts.
 

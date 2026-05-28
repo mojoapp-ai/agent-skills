@@ -8,16 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 - `.claude/skills/release/` — internal skill that cuts a SemVer-tagged release from main, classifies commits, updates CHANGELOG.md, tags, pushes, and opens a GitHub Release.
-- `.claude/skills/nextra-update/` — internal skill that mirrors `mojo-apps/nextra/content/` into `mojo-app-docs/references/`.
+- `.claude/skills/nextra-update/` — internal skill that mirrors `mojo-apps/nextra/content/` into `skills/mojo-app-docs/references/`.
 
 ### Changed
-- `mojo-glp1-knowledge/references/mounjaro-kwikpen.md` — rewritten in English with inline Traditional / Simplified Chinese glosses on first occurrence (brand name, generic name, patient-facing terms). Same factual content, internationalised for English-speaking agents reading the reference.
+- `skills/mojo-glp1-knowledge/references/mounjaro-kwikpen.md` — rewritten in English with inline Traditional / Simplified Chinese glosses on first occurrence (brand name, generic name, patient-facing terms). Same factual content, internationalised for English-speaking agents reading the reference.
 
 ### Added (knowledge references)
-- `mojo-glp1-knowledge/references/ozempic-knowledge.md` — Ozempic (胰妥讚 / 诺和泰) consolidated reference (semaglutide, T2D + CV/renal). Consolidated across FDA DailyMed, EMA SmPC, TFDA records, and community pattern review; reconciled US vs EMA storage windows.
-- `mojo-glp1-knowledge/references/wegovy-knowledge.md` — Wegovy consolidated reference (semaglutide for chronic weight management; single-dose pens).
-- `mojo-glp1-knowledge/references/rybelsus-knowledge.md` — Rybelsus (瑞倍適) consolidated reference (oral semaglutide tablet; strict empty-stomach + 30-min wait protocol).
-- `mojo-glp1-knowledge/references/zepbound-knowledge.md` — Zepbound consolidated reference (tirzepatide for chronic weight management + OSA; same active as Mounjaro but distinct label).
-- `mojo-glp1-knowledge/references/saxenda-knowledge.md` — Saxenda (善纖達) consolidated reference (liraglutide, once-daily multi-dose pen; ~13h half-life vs weekly agents).
+- `skills/mojo-glp1-knowledge/references/ozempic-knowledge.md` — Ozempic (胰妥讚 / 诺和泰) consolidated reference (semaglutide, T2D + CV/renal). Consolidated across FDA DailyMed, EMA SmPC, TFDA records, and community pattern review; reconciled US vs EMA storage windows.
+- `skills/mojo-glp1-knowledge/references/wegovy-knowledge.md` — Wegovy consolidated reference (semaglutide for chronic weight management; single-dose pens).
+- `skills/mojo-glp1-knowledge/references/rybelsus-knowledge.md` — Rybelsus (瑞倍適) consolidated reference (oral semaglutide tablet; strict empty-stomach + 30-min wait protocol).
+- `skills/mojo-glp1-knowledge/references/zepbound-knowledge.md` — Zepbound consolidated reference (tirzepatide for chronic weight management + OSA; same active as Mounjaro but distinct label).
+- `skills/mojo-glp1-knowledge/references/saxenda-knowledge.md` — Saxenda (善纖達) consolidated reference (liraglutide, once-daily multi-dose pen; ~13h half-life vs weekly agents).
 
 [Unreleased]: https://github.com/mojoapp-ai/agent-skills/compare/HEAD...HEAD
