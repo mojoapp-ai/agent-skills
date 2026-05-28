@@ -1,0 +1,144 @@
+---
+title: Troubleshooting
+description: How to resolve common mojo issues including sleep sync, food sync, and more
+---
+
+# Troubleshooting
+
+Having trouble with data sync? Follow the steps below to diagnose the issue.
+
+---
+
+## Health Data Not Syncing
+
+This is one of the most common issues. mojo reads data directly from Apple Health (iOS) or Health Connect (Android), so the first step is to confirm whether the data actually exists in either platform before diagnosing further.
+
+### iOS
+
+**Step 1: Check your Apple Health data**
+
+1. Open the built-in **Health** app on your iPhone
+2. Find the category you suspect isn't syncing (e.g., Sleep, Steps) and tap to view its data
+
+**Step 2: Act on what you find**
+
+- **If data is there**: The data exists in Apple Health — mojo may not have permission to read it. Go to the **Health** app → tap your profile picture (top-right) → **Apps & Services** → **mojo**, and make sure the read permissions for the relevant categories are enabled (enabling **Turn On All** is recommended). If permissions are already enabled, fully close mojo and reopen it. If the issue persists, use the in-app **Report a Problem** feature.
+- **If data is missing**: The issue is upstream — your wearable's companion app hasn't written data to Apple Health yet. Open the app for your device (e.g., Apple Watch, Garmin Connect) and make sure it has permission to write to Apple Health.
+
+---
+
+### Android
+
+**Step 1: Check your Health Connect data**
+
+1. Go to **Settings** → **Privacy** → **Health data sync** → **Data and access**
+2. Find the category you suspect isn't syncing (e.g., Sleep) and tap to view its data
+
+**Step 2: Act on what you find**
+
+- **If data is there**: The data exists in Health Connect — mojo may not have permission to read it. Go to **Settings** → **Privacy** → **Health data sync** → **App access** → **mojo**, and make sure the read permissions for the relevant categories are enabled. If permissions are already enabled, fully close mojo and reopen it. If the issue persists, use the in-app **Report a Problem** feature.
+- **If data is missing**: The issue is upstream — your source app hasn't written data to Health Connect yet. Open your source app (e.g., Xiaomi Health) and make sure it has permission to write to Health Connect.
+
+---
+
+## Sleep Data Display Issues
+
+mojo handles sleep data from health platforms in two ways:
+
+- **With sleep stages** (Core, Deep, REM, etc.): mojo renders a stacked stage chart
+- **Total sleep time only, no stages**: mojo still shows "Sleep: X hours" with the time range, and notes that this data source did not provide detailed stages so a stage chart can't be rendered
+
+If you don't see any sleep data at all, follow the steps below to diagnose.
+
+### iOS (Apple Health)
+
+#### Step 1: Check Apple Health Permissions
+
+1. Open the built-in **Health** app on your iPhone
+2. Tap your profile picture in the top-right corner
+3. Select **Apps & Services**
+4. Tap **mojo**
+5. Make sure **Sleep** read access is enabled (enabling **Turn On All** is recommended)
+
+#### Step 2: Confirm Sleep Data Exists in Apple Health
+
+Open the **Health** app → Sleep → scroll to the bottom and tap **Show All Data**. Tap last night's record and check whether it contains data, and whether it has detailed stages (e.g., Core, Deep).
+
+**Common scenarios:**
+- **Mi Band and other third-party devices**: Some devices only write "In Bed" or a generic "Sleep" entry to Apple Health without detailed stages. mojo will show the total sleep duration but cannot render a stage chart.
+- **Apple Watch**: Writes complete sleep stage data and renders the full stage chart.
+
+#### Step 3: Choose the Right Category When Logging Manually
+
+If you add sleep records manually in Apple Health, prefer **Core Sleep** or another specific stage so mojo can draw the stage chart.
+
+If you only choose "In Bed" or "Sleep", mojo will still show the total sleep duration but cannot render the stage chart.
+
+#### Step 4: Force a Refresh
+
+If the data and permissions look correct but mojo still isn't showing sleep data:
+
+1. Fully close mojo (swipe up from the bottom of the screen and swipe the app card away)
+2. Reopen mojo — it will re-fetch the latest data from Apple Health on launch
+
+---
+
+### Android (Health Connect)
+
+#### Step 1: Check Health Connect Permissions
+
+1. Go to **Settings** → **Privacy** → **Health data sync** → **App access** → **mojo**
+2. Make sure **Sleep** read access is enabled
+
+#### Step 2: Confirm Sleep Data Exists in Health Connect
+
+Go to **Settings** → **Privacy** → **Health data sync** → **Data and access** → **Sleep**, then tap a recent entry to see whether it includes detailed stages.
+
+**Common scenarios:**
+- **Mi Fitness, Huawei Health, etc.**: Typically write a single sleep session without detailed stages. mojo will show the total sleep duration but cannot render a stage chart.
+- **Samsung Health with Galaxy Watch**: Writes complete sleep stages and renders the full stage chart.
+
+#### Step 3: Force a Refresh
+
+Go to mojo's settings page and tap the **Manual Sync** button, or fully close mojo and reopen it. If sync has been failing for a long time, use **Re-authorize Health Connect** in mojo's settings.
+
+---
+
+## Food Data Not Syncing
+
+### Data Sources
+
+mojo can receive food data in the following ways:
+
+- **Manual entry in-app** — add meals directly in mojo
+- **Apple Health sync** (iOS) — sync from third-party food apps
+- **Health Connect sync** (Android) — sync from third-party food apps
+
+If you log food in a third-party app (such as FatSecret or MyFitnessPal), that app must be configured to write data to Apple Health or Health Connect for mojo to read it.
+
+> Some apps do not support syncing nutrition data to Apple Health. mojo cannot read data from those apps.
+
+### Troubleshooting Steps
+
+**A. Check third-party app permissions**
+
+Make sure the food-logging app you use has permission to write nutrition data (typically "Dietary Energy / Nutrients") to Apple Health or Health Connect.
+
+**B. Confirm data is present in the health platform**
+
+Even if the third-party app says it has synced, open Apple Health or Health Connect and verify that the nutrition data (e.g., "Dietary Energy") is actually there.
+
+**C. Restart mojo**
+
+After adjusting settings or entering new data, fully close mojo and reopen it to force a sync.
+
+### iOS Advanced Troubleshooting
+
+1. **Check mojo's read permissions**: Go to the **Health** app → profile picture → Apps & Services → mojo, and make sure all read permissions are enabled.
+2. **MyFitnessPal-specific issue**: If you change the meal time of a logged item (e.g., moving lunch to dinner), MyFitnessPal may not correctly update the value in Apple Health. Try making a minor edit to that meal (e.g., changing the serving from 1 to 0.99) to trigger a sync update.
+
+### Android Advanced Troubleshooting
+
+1. **Health Connect history limit**: Health Connect may limit data history to 30 days — older data may not sync.
+2. **Manual sync**: Go to mojo's settings page and tap the **Manual Sync** button to retry.
+3. **Re-authorize**: If sync has been failing for a long time, use **Re-authorize Health Connect** in mojo's settings.

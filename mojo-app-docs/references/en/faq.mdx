@@ -1,0 +1,318 @@
+---
+title: "FAQ"
+description: "Complete FAQ for the mojo app — basics, features, data tracking, and compatibility"
+---
+
+# Frequently Asked Questions (FAQ)
+
+## Basics
+
+### Q: What is mojo?
+
+mojo is a **weight loss management app** designed for people using GLP-1 medications (Mounjaro, Ozempic, Wegovy, etc.). It supports both **iOS** and **Android**. Core features include:
+
+- **Injection tracking**: Log the date and dose of each injection
+- **Progress charts**: Visualize changes in weight, muscle, body fat, and dosage
+- **AI health analysis**: Real-time feedback and comprehensive health reports
+- **Health data integration**: Automatically sync nutrition, exercise, and sleep data (via Apple Health on iOS, Health Connect on Android)
+- **Water intake tracking**: Track daily hydration
+
+### Q: Who made mojo?
+
+mojo is independently developed by **HANA 花水木**.
+
+### Q: Who is mojo for?
+
+**Best suited for:**
+- People using GLP-1 medications such as Mounjaro, Ozempic, or Wegovy
+- Anyone who wants to track weight loss progress and body composition changes
+- People who want personalized AI recommendations
+- Those who value data privacy and comprehensive record-keeping
+
+**Less suitable for:**
+- People not using weight loss medications (the app can still be used, but some features won't apply)
+- People who don't want to track health data
+
+### Q: Does mojo cost money?
+
+mojo is **free to download and use** for core logging features. Subscribing to mojo Friend unlocks advanced features:
+
+- AI reports and real-time feedback
+- Automatic health data sync (Apple Health / Health Connect)
+- Data export and backup
+- Medication inventory management
+- Custom Streak goals
+
+**Quarterly** and **annual** plans are available, with an early bird discount for new users.
+
+---
+
+## Download & Installation
+
+### Q: Where can I download mojo?
+
+- **iOS**: Search "mojo" on the [App Store](https://apps.apple.com/app/id6751704399)
+- **Android**: Search "mojo" on [Google Play](https://play.google.com/store/apps/details?id=com.hanamizuki.mojo)
+
+### Q: What are the minimum system requirements?
+
+- **iOS**: **iOS 18.0** or later
+- **Android**: **Android 9.0** (API 28) or later
+
+### Q: Does mojo support iPad?
+
+Currently, mojo supports **iPhone** and **Android phones** only.
+
+---
+
+## Health Data Sync
+
+### Q: What data does mojo track?
+
+| Data Type | iOS (Apple Health) | Android (Health Connect) |
+|-----------|-------------------|--------------------------|
+| Weight / Body fat | ✅ | ✅ |
+| Steps / Active calories | ✅ | ✅ |
+| Workouts | ✅ | ✅ |
+| Nutrition (calories / protein / carbs / fat) | ✅ | ✅ |
+| Sleep | ✅ | ✅ |
+| Water intake | ✅ | ✅ |
+| Menstrual cycle | ✅ | ✅ |
+
+Injection records, side effects, and body measurements (muscle mass, waist circumference, etc.) are entered manually and do not rely on a health platform.
+
+### Q: Is Apple Health / Health Connect required?
+
+**No**, but it's highly recommended. mojo is designed for effortless logging: automatic sync of nutrition, exercise, sleep, and hydration eliminates manual data entry. It aggregates data from multiple apps and devices (MyFitnessPal, Apple Watch, Garmin, etc.).
+
+Injection records, side effects, and body measurements support manual entry. Nutrition can also be entered manually or imported via deep link.
+
+### Q: How do I authorize Apple Health? (iOS)
+
+1. Open the mojo app
+2. Go to the **Settings** tab → **Apple Health Sync**
+3. Tap Authorize
+4. Select the data types to share (enabling all is recommended)
+5. Tap **Allow**
+
+**To re-authorize** (if you accidentally denied access):
+1. Open the **Health** app (iOS system app)
+2. Tap your profile picture in the top-right corner
+3. Find **mojo** and tap it
+4. Enable read access for all data types
+
+### Q: Which apps and devices do you recommend?
+
+**Calorie tracking:**
+- **MyFitnessPal** (free) — largest food database
+- **Calory** (paid) — clean interface with AI food recognition
+
+**Exercise & sleep:**
+- **Apple Watch** — automatic exercise and sleep tracking
+- **Garmin** — professional sports watch (syncs via Apple Health / Health Connect)
+- **Oura Ring** — focused on sleep tracking
+
+**Body composition:**
+- **Omron HBF-702T** — body fat scale with Bluetooth sync
+- **Inbody H30** — professional body composition analysis with Wi-Fi sync
+
+### Q: Why can't I see muscle mass data?
+
+Apple Health and Health Connect do not support "skeletal muscle mass" as a data type, so mojo cannot fetch it automatically. You need to enter muscle mass data manually in the app.
+
+### Q: Will my Garmin watch data sync?
+
+Garmin watch exercise and health data syncs first to **Apple Health** (iOS) or **Health Connect** (Android), and mojo then reads from those platforms.
+
+**Note**: Some Garmin models may not write "Active Calories" to Health Connect. mojo handles this by falling back to "Total Calories Burned" for the calculation.
+
+---
+
+## Injection Tracking
+
+### Q: How do I log an injection?
+
+1. Open the **Today** tab
+2. Find the injection progress block above the chart
+3. Tap the block
+4. Fill in the date, medication name, and dose
+5. Tap **Save**
+
+### Q: Can I edit or delete an injection record?
+
+Yes. Go to the **Settings** tab → **Data Management** → **Injection Records**, then tap the record you want to edit or delete.
+
+**Note**: Deleting an injection record will affect the progress charts.
+
+---
+
+## Body Measurements
+
+### Q: How do I log weight, body fat, and muscle mass?
+
+**Auto-sync (recommended):**
+- Use a scale that supports Apple Health / Health Connect
+- Step on the scale and the data syncs to mojo automatically
+
+**Manual entry:**
+1. Go to the **Settings** tab → **Data Management** → **Body Measurements**
+2. Tap the **+** button in the top-right corner
+3. Enter the measurement values
+4. Tap **Save**
+
+### Q: Why isn't measurement data showing on the progress chart?
+
+**Possible reasons:**
+1. **No injection records**: The chart uses injection dates as its reference points
+2. **Measurement date outside the window**: Measurements must be within 3 days before or after an injection
+3. **Measurement value is 0**: Check that the data was entered correctly
+
+**Solutions:**
+- Add at least 1 injection record
+- Make sure measurements fall within 3 days of an injection
+- Verify the measurement values are correct
+
+---
+
+## AI Analysis
+
+### Q: What is Micro-feedback?
+
+**Brief feedback:**
+- Displayed at the top of the **Today** tab
+- Auto-generated when data changes
+- Real-time encouragement and reminders
+
+**Example:**
+> You hit your step goal today — great work! Don't forget to get enough protein.
+
+### Q: What is the full AI report?
+
+**Comprehensive analysis** (multi-paragraph):
+- Displayed on the **mojo** tab
+- Covers weight loss progress, nutrition, exercise, and sleep analysis
+- Personalized recommendations and risk alerts
+
+### Q: How often does the AI analysis update?
+
+**Triggers:**
+- Data changes (adding/editing nutrition, exercise, sleep, or measurements)
+- 30-second cooldown period
+- At least 5 minutes since the last analysis
+
+### Q: Can I fully trust the AI recommendations?
+
+**No:**
+- AI recommendations are for **reference only**
+- They cannot replace professional medical advice
+- Consult a **doctor** or **dietitian** for any health concerns
+- Medication dose adjustments must be made under **doctor's guidance**
+
+---
+
+## Progress Charts
+
+### Q: What does the X-axis represent?
+
+The X-axis is based on your injection record dates. Each injection date shows one data point, with the value coming from measurements taken within 3 days before or after that injection.
+
+### Q: Why is there no data point for a particular injection date?
+
+There are no measurements within 3 days before or after that injection. We recommend building a habit of measuring before each injection, or using a scale that syncs automatically.
+
+### Q: How do I change the chart time range?
+
+1. Go to the **Progress** tab
+2. Tap the time selector above the chart
+3. Choose: 1 month / 3 months / 6 months / All
+
+---
+
+## Subscription & Payment
+
+### Q: How do I subscribe?
+
+1. Go to the **Settings** tab → **Subscription & Account**
+2. Tap **Upgrade Subscription**
+3. Choose a plan (Quarterly or Annual)
+4. Pay with Apple Pay (iOS) or Google Pay (Android)
+5. Access unlocked immediately
+
+### Q: How do I cancel my subscription?
+
+**iOS:**
+1. Open the **Settings** app → Apple ID → **Subscriptions**
+2. Find **mojo** → **Cancel Subscription**
+
+**Android:**
+1. Open Google Play Store → Account → **Payments & subscriptions** → **Subscriptions**
+2. Find **mojo** → **Cancel Subscription**
+
+**After cancellation**: You keep access until the end of the paid period, then revert to the free plan.
+
+### Q: Can I get a refund?
+
+**iOS**: Request a refund at [reportaproblem.apple.com](https://reportaproblem.apple.com/).
+
+**Android**: Request a refund at the [Google Play Help Center](https://support.google.com/googleplay/answer/2479637).
+
+---
+
+## Data Management
+
+### Q: How do I back up my data?
+
+Go to the **Settings** tab → **Data Management** → **Backup & Restore** to export all your data as a backup file.
+
+The backup includes: injection records, body measurements, nutrition logs, water intake logs, side effect records, Streak settings, and more.
+
+iOS and Android use the same backup format, so you can restore across platforms.
+
+### Q: How do I delete all my data?
+
+**Warning**: Deleting your account permanently deletes all cloud data!
+
+1. **Back up first** (recommended)
+2. Go to the **Settings** tab → **Subscription & Account**
+3. Tap **Delete Account**
+4. Confirm to proceed
+
+### Q: How do I restore my data on a new device?
+
+1. Install mojo on the new device
+2. Sign in with the same account
+3. Cloud data syncs automatically (injection records, subscription status)
+4. Re-authorize Apple Health / Health Connect
+
+---
+
+## Account
+
+### Q: How do I sign in to mojo?
+
+mojo uses **Email + OTP verification**:
+
+1. Enter your email address
+2. You'll receive a 6-digit verification code
+3. Enter the code to sign in
+
+iOS and Android use the same sign-in method, and accounts are shared across platforms.
+
+### Q: Can I be signed in on multiple devices at the same time?
+
+Yes. Sign in with the same email on multiple devices — subscription status will sync across all of them.
+
+---
+
+## Other Questions
+
+### Q: Can I share my progress?
+
+Yes. Use the share feature on the **Progress** tab to generate a progress image. You can choose to **hide your actual weight** and only show how many kilograms you've lost and your trend graph, to protect your privacy.
+
+### Q: How do I report an issue or submit feedback?
+
+Go to **Settings → Support & Community** in the app. You'll find two options:
+
+- **Report Issues or Feedback** — opens an email with your device model, OS version, and app version pre-filled
+- **Feature Wishlist** — browse, vote on, or submit feature requests

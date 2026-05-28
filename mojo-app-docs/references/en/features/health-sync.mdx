@@ -1,0 +1,66 @@
+---
+title: Health Data Sync
+description: mojo automatically syncs your health data from Apple Health and Health Connect
+---
+
+# Health Data Sync
+
+mojo automatically syncs your health data via Apple Health (iOS) and Health Connect (Android), significantly reducing the need for manual data entry.
+
+## Supported Data Types
+
+| Data Type | iOS (Apple Health) | Android (Health Connect) |
+|-----------|-------------------|--------------------------|
+| Weight | ✅ | ✅ |
+| Body Fat % | ✅ | ✅ |
+| Skeletal Muscle | ❌ | ❌ |
+| Waist Circumference | ✅ | ❌ |
+| Nutrition (calories/protein/carbs/fat) | ✅ | ✅ (daily totals) |
+| Active Calories | ✅ | ✅ |
+| Resting Metabolic Rate | ✅ | ✅ |
+| Steps | ✅ | ✅ |
+| Workouts | ✅ | ✅ |
+| Sleep | ✅ | ✅ |
+| Water | ✅ | ✅ |
+| Menstrual Cycle | ✅ | ✅ |
+
+> Skeletal muscle is not currently supported by Apple Health or Health Connect and must be entered manually.
+
+## How to Grant Permission
+
+### iOS
+
+1. Open mojo → Settings → Apple Health Sync
+2. Tap Authorize — it's recommended to enable all permissions
+3. Data will sync automatically in the background
+
+If you accidentally denied permission, go to the iOS Health app → tap your profile photo in the top right → find mojo → enable all read permissions.
+
+### Android
+
+1. Open mojo → Settings → Health Connect Sync
+2. Authorize all data types
+3. Data will sync automatically in the background
+
+## How Sync Works
+
+- Data syncs automatically when changes are detected; you can also trigger a manual sync from Settings if needed
+- Incremental sync: only new or modified records are fetched
+- If you manually edit a synced record, mojo preserves your changes and won't overwrite them on the next sync
+
+## Recommended Apps & Devices
+
+**Food Logging:**
+- **MyFitnessPal** (free) — the most comprehensive food database
+- **Calory** (paid) — clean interface with AI food recognition
+
+**Exercise & Sleep:**
+- **Apple Watch** — automatically tracks workouts and sleep
+- **Garmin** — sports watch that syncs via Apple Health / Health Connect
+- **Oura Ring** — focused on sleep tracking
+
+**Body Measurements:**
+- **Omron HBF-702T** — body fat scale with Bluetooth sync
+- **Inbody H30** — professional body composition analysis
+
+> As long as a third-party app or device writes to Apple Health / Health Connect, mojo can read it automatically.

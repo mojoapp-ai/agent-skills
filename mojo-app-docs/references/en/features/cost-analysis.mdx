@@ -1,0 +1,74 @@
+---
+title: Inventory & Cost Analysis
+description: mojo's medication inventory tracking and treatment cost calculation features
+---
+
+# Inventory & Cost Analysis
+
+mojo helps you track medication inventory usage and calculate the cost of your weight loss treatment.
+
+## Medication Inventory
+
+Each time you receive new medication, you can add an inventory record:
+
+- **Medication type** — Injection pen or oral medication
+- **Total dose / total quantity** — The **total amount** in this package (see below)
+- **Purchase price** — Amount and currency (supports TWD, USD, JPY, EUR, CNY, KRW, HKD, SGD, and 16+ other currencies)
+- **Opening date** — When you started using it
+
+### How to fill in "Total dose"
+
+| Medication type | How to fill | Example |
+|----------------|-------------|---------|
+| Injection pen | Total **mg** in the entire pen | A pen with 4 doses of 5mg each → enter **20** (mg) |
+| Oral medication | Total **number of pills** in the box | A box of 30 pills → enter **30** (pills) |
+
+> ⚠️ Note: For injection pens, enter the total mg in the pen, **not** the per-injection dose. For example, a Mounjaro 5mg pen contains 4 doses, so total dose should be 20mg, not 5mg. If you entered the per-injection dose, the progress bar on the inventory card will quickly exceed 100% — you can fix this in Inventory Management.
+
+The inventory card displays a progress bar and usage percentage. Finished inventory can be archived.
+
+### Selecting an inventory in medication records
+
+After adding an inventory, you also need to **link each injection or oral dose to an inventory** from your medication records. Only then will the usage be automatically deducted and the cost counted.
+
+When you add or edit a medication record, you'll see an **Inventory** section:
+
+- All active (non-archived) inventories **for the currently selected medication type** are listed — tap one to select it
+- If you don't have any inventory yet, you can add one directly from this screen
+- The next time you add a medication record, your most recently used inventory is pre-selected, so you don't have to choose every time
+- If you don't want to link one, you can pick "No inventory selected" — but that record **won't be included in cost analysis**, and no usage will be deducted
+
+> ℹ️ Inventory selection is a PRO feature. Non-subscribers will see it in a locked state.
+
+## Cost Analysis
+
+Cost analysis helps you understand the medication expenses throughout your weight loss journey. This is a premium feature for mojo Friend subscribers.
+
+**How it's calculated:**
+1. Starting from your configured "baseline date", only medication records after this date are included
+2. Filters to records that are linked to inventory and have a price entered
+3. For each inventory, compares the stated total dose with actual usage, and uses the higher value as the "effective total"
+4. Calculates the unit cost from each inventory's "price ÷ effective total"
+5. For injectable medications: cost per injection = dose × unit cost
+6. For oral medications: cost per dose = cost of one unit
+7. Sums the cost of all matching records, automatically converting currencies if needed
+
+> Step 3 ensures that even if the total dose was entered lower than actual usage, the total cost will never exceed the purchase price of the inventory.
+
+**What's displayed:**
+- Starting weight → current weight → total weight lost
+- Cumulative medication cost
+- **Cost per kilogram** — How much you've spent for each kilogram lost
+
+**Multi-currency support:**
+If your inventory uses different currencies (e.g., purchased in different countries), mojo automatically converts to your chosen display currency using live exchange rates.
+
+**Common questions:**
+- **Cost doesn't match actual spending?** Check the following in order: (1) Inventory entries may be missing the purchase price (2) The "total dose" may be incorrect — it should be the total mg in the pen, not the per-injection dose (3) Some medication records may not be linked to inventory. Go to "Inventory Management" to verify the price and total dose, and check "Medication Records" to make sure each entry is linked to the correct inventory.
+- **How is the baseline date determined?** The system uses your configured baseline date option as the starting point. Only medication records after this date are included. You can adjust this in settings.
+
+**When data is insufficient:**
+- No baseline weight → prompts you to log your weight first
+- No weight loss yet → shows cumulative spending so far; cost per kilogram is calculated once weight loss is recorded
+- Medication records not linked to inventory or missing price → those records are excluded from the cost calculation
+- Inventory price set to 0 → treated as a free trial and counted (total cost will be 0)

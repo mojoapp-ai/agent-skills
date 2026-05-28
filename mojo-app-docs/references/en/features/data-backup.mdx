@@ -1,0 +1,79 @@
+---
+title: Data Import & Export
+description: mojo's cross-platform backup and restore, plus CSV import (iOS only) for body measurements
+---
+
+# Data Import & Export
+
+mojo provides comprehensive backup, restore, and data import features to ensure your data is never lost.
+
+## Backup
+
+Go to Settings → Data Management → Backup & Restore to export all your data as a JSON backup file.
+
+**Data included in backup:**
+- Personal info (height, date of birth, gender, goal weight, weight loss rate, activity level)
+- User settings (unit preferences, currency, reminder times, hydration settings)
+- Injection records (medication, dose, site, time)
+- Side effect records
+- Body measurements (manually entered)
+- Menstrual cycle records (manually entered)
+- Medication inventory
+- Streak settings and records
+- Nutrition logs (manually entered)
+- Visceral fat and waist circumference records
+- Water intake records (manually entered)
+
+> Data synced from Apple Health / Health Connect is not included in the backup, as it will re-sync after re-authorizing on restore. Note: Apple Health typically re-syncs full history, while Health Connect may only provide recent data depending on app permissions and data retention policies.
+
+**Backup file name format:** `mojo_backup_YYYY-MM-DD.json`
+
+## Restore
+
+After selecting a backup file, mojo will:
+1. Validate the integrity of the backup contents
+2. Show a confirmation prompt (restore will overwrite existing data)
+3. Complete all data replacement in a single transaction to ensure data consistency
+4. Display an import summary (number of records imported for each category)
+
+After restore, medication reminders will be automatically rescheduled and the Streak cache will be updated.
+
+## Cross-Platform Compatibility
+
+iOS and Android use the same backup format and can restore each other's backups:
+- iOS backups can be restored on Android, and vice versa
+- Newer app versions can restore older backups (missing fields are automatically filled with default values)
+- Older app versions can restore newer backups (unrecognized fields are ignored)
+
+## CSV Import (Body Measurements)
+
+> **iOS only · Beta (experimental):** CSV import is currently available on iOS only (not yet supported on Android), and is still being refined. If you run into trouble with a particular file, please reach out to support.
+
+If you have exported body composition data from another app or device, mojo supports importing body measurements via CSV files.
+
+**Supported formats:**
+- CSV / TSV files
+- Auto-detect delimiter (comma, tab, semicolon)
+- Supports multiple encodings: UTF-8, Big5 (Traditional Chinese), UTF-16
+
+**Smart field recognition:**
+mojo automatically identifies date, weight, body fat, muscle mass, and other columns in your CSV. A preview is shown before import so you can confirm the data is correct before it's written.
+
+If the date column can't be recognized automatically, you can manually pick which column is the date on the field mapping screen, so the import doesn't get stuck.
+
+**Supported date formats:**
+`yyyy-MM-dd`, `yyyy/MM/dd`, `MM/dd/yyyy`, `yyyy年MM月dd日`, and more.
+
+## Health Data Export (Text Format)
+
+mojo can export your health data as plain text, making it easy to share with your doctor or use in your preferred tools:
+
+> **Privacy reminder:** Exported data contains personal health information. Be mindful when sharing with third-party services.
+
+- Personal info (height, gender, age)
+- Baseline data (starting weight, body fat, muscle mass)
+- Body measurements from the past 30 days
+- Nutrition logs from the past 7 days
+- Exercise and sleep from the past 14 days
+- Injection history
+- Side effects from the past 14 days
