@@ -45,34 +45,15 @@ The full user-facing documentation site (the same one at [docs.mojoapp.ai](https
 
 ## Install
 
-### Claude Code
+Tell your AI agent to install the skill you want. Just paste one of these:
 
-```bash
-git clone https://github.com/mojoapp-ai/agent-skills.git ~/agent-skills
+> Install the mojo food log skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-food-log
 
-# Install any subset of skills — or all of them
-cp -r ~/agent-skills/skills/mojo-food-log         ~/.claude/skills/
-cp -r ~/agent-skills/skills/mojo-glp1-knowledge   ~/.claude/skills/
-cp -r ~/agent-skills/skills/mojo-app-guide       ~/.claude/skills/
-```
+> Install the mojo GLP-1 knowledge skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-glp1-knowledge
 
-To stay in sync with upstream updates, symlink instead of copying:
+> Install the mojo app guide skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-app-guide
 
-```bash
-ln -s ~/agent-skills/skills/mojo-food-log         ~/.claude/skills/mojo-food-log
-ln -s ~/agent-skills/skills/mojo-glp1-knowledge   ~/.claude/skills/mojo-glp1-knowledge
-ln -s ~/agent-skills/skills/mojo-app-guide       ~/.claude/skills/mojo-app-guide
-```
-
-Then `cd ~/agent-skills && git pull` whenever you want the latest.
-
-### OpenClaw
-
-Drop each skill directory into your agent's shared skills folder (typically `<agent-workspace>/skills/_all/` or `<agent>/skills/`). The `SKILL.md` frontmatter is compatible with both runtimes.
-
-### Other agent runtimes
-
-Any agent that loads skills from a directory of `SKILL.md` files (Anthropic SDK skills, custom harnesses) will work. Point it at the `SKILL.md` inside each skill folder.
+Works with Claude Code, OpenClaw, and any agent runtime that loads `SKILL.md` files.
 
 ---
 
