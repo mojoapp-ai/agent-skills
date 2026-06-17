@@ -45,15 +45,27 @@ The full user-facing documentation site (the same one at [docs.mojoapp.ai](https
 
 ## Install
 
-Tell your AI agent to install the skill you want. Just paste one of these:
+Copy one of the prompts below and paste it to your AI agent (Claude Code, OpenClaw, or any agent that loads `SKILL.md` files).
 
-> Install the mojo food log skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-food-log
+**Install all three skills:**
 
-> Install the mojo GLP-1 knowledge skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-glp1-knowledge
+```
+Install the mojo agent skills from https://github.com/mojoapp-ai/agent-skills
+```
 
-> Install the mojo app guide skill: https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-app-guide
+**Or install one at a time:**
 
-Works with Claude Code, OpenClaw, and any agent runtime that loads `SKILL.md` files.
+```
+Install the mojo food log skill from https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-food-log
+```
+
+```
+Install the mojo GLP-1 knowledge skill from https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-glp1-knowledge
+```
+
+```
+Install the mojo app guide skill from https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-app-guide
+```
 
 ---
 
