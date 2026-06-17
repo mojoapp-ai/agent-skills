@@ -16,7 +16,7 @@ Each skill is plain text. No API calls. No telemetry. Nothing happens to your mo
 
 ## The skills
 
-### [`skills/mojo-food-log/`](skills/mojo-food-log/) — analyze a meal, log it to mojo
+### [`/mojo-food-log`](skills/mojo-food-log/) — analyze a meal, log it to mojo
 
 When you upload a food photo or describe what you ate, the agent acts as a registered dietitian — estimates calories + macros + fiber, presents a nutrition table, and produces a one-tap **Import to mojo** link.
 
@@ -27,7 +27,7 @@ When you upload a food photo or describe what you ate, the agent acts as a regis
 
 The skill handles language detection, meal type inference (from explicit mention or time-of-day fallback), hidden calorie checks, and link generation — all in one flow.
 
-### [`skills/mojo-glp1-knowledge/`](skills/mojo-glp1-knowledge/) — your knowledgeable peer for GLP-1 questions
+### [`/mojo-glp1-knowledge`](skills/mojo-glp1-knowledge/) — your knowledgeable peer for GLP-1 questions
 
 When you ask about Mounjaro, Ozempic, Wegovy, Zepbound, Saxenda, Rybelsus, or GLP-1 in general (瘦瘦針 / 減肥針 / 瘦瘦筆), the agent answers thoughtfully — drawing on a curated knowledge base plus its own medical training.
 
@@ -37,7 +37,7 @@ When you ask about Mounjaro, Ozempic, Wegovy, Zepbound, Saxenda, Rybelsus, or GL
 
 Includes corrections for common misconceptions (dose vs. pen total, needle reuse, residual medication) and always pairs actionable advice with a clear disclaimer.
 
-### [`skills/mojo-app-guide/`](skills/mojo-app-guide/) — the mojo app user guide
+### [`/mojo-app-guide`](skills/mojo-app-guide/) — the mojo app user guide
 
 The full user-facing documentation site (the same one at [docs.mojoapp.ai](https://docs.mojoapp.ai)) is bundled in four languages (`en`, `zh-TW`, `zh-Hant-HK`, `zh-Hans`). When you ask "how do I cancel my subscription", "how does the streak counter work", or "where do I enter my body fat", the agent reads the matching page and answers in your language.
 
