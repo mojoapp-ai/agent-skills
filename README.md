@@ -57,16 +57,6 @@ Works with Claude Code, OpenClaw, and any agent runtime that loads `SKILL.md` fi
 
 ---
 
-## A note on the import link
-
-The link `mojo-food-log` generates — `https://api.mojoapp.ai/nutrition/add?...` — is a redirect page, not a true universal link. On a phone it opens mojo via URL scheme; if the app is missing, it falls back to the App Store / Play Store. On desktop you'll see a "please open this on your phone" prompt — that's by design.
-
-Importing food into the user's log requires a **mojo Premium subscription**. Free users will see a paywall.
-
-Full parameter spec: [`skills/mojo-food-log/references/deep-link-spec.md`](skills/mojo-food-log/references/deep-link-spec.md).
-
----
-
 ## Privacy
 
 - ❌ No API calls.
