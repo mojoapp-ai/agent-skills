@@ -65,7 +65,7 @@ Round all values to integers. Combine all items from one meal into **one link** 
 Rules:
 - `calories` is the only required parameter and must be > 0.
 - `date` defaults to today in `YYYY-MM-DD`.
-- `foodName` encoding: URL-encode it with a real tool — e.g. `python3 -c "from urllib.parse import quote; print(quote('雞腿便當'))"` or `node -e "console.log(encodeURIComponent('雞腿便當'))"` — which yields an all-ASCII URL. No code tool available? Write non-ASCII text (e.g. Chinese) as-is and only encode spaces as `%20`; the browser encodes the rest correctly on tap. **NEVER hand-write `%XX` bytes for non-ASCII characters from memory** — LLM-recalled byte sequences are frequently wrong and silently corrupt the food name.
+- `foodName` encoding: URL-encode it with a real code tool — e.g. `python3 -c "from urllib.parse import quote; print(quote('雞腿便當'))"`, or `encodeURIComponent` in JS — which yields an all-ASCII URL. No code tool available? Write non-ASCII text (e.g. Chinese) as-is and only encode spaces as `%20`; the browser encodes the rest correctly on tap. **NEVER hand-write `%XX` bytes for non-ASCII characters from memory** — LLM-recalled byte sequences are frequently wrong and silently corrupt the food name.
 - Keep `foodName` as the **last** query parameter, so the numeric parameters survive if a chat client truncates the link mid-URL.
 - **One meal = one link.** A bento with rice, protein, and sides is one meal. Only produce multiple links if the user explicitly logged separate meals.
 

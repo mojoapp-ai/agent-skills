@@ -66,7 +66,7 @@ A simple breakfast:
 https://api.mojoapp.ai/nutrition/add?calories=320&protein=18&carbs=42&fat=9&mealType=breakfast&foodName=Oatmeal%20with%20banana
 ```
 
-A Taiwanese lunchbox (combined totals; raw Chinese food name — the browser encodes it on tap, or use a code tool to emit the all-ASCII form):
+A Taiwanese lunchbox (combined totals, raw Chinese food name):
 
 ```
 https://api.mojoapp.ai/nutrition/add?calories=720&protein=38&carbs=85&fat=24&fiber=6&mealType=lunch&date=2026-05-27&foodName=雞腿便當
