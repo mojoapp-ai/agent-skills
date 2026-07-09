@@ -26,7 +26,7 @@ https://api.mojoapp.ai/nutrition/add
 - All numeric fields are decimal numbers. Negative values are silently dropped.
 - `mealType` must be one of the four enum values; anything else falls back to `breakfast`.
 - `date` must be ISO `YYYY-MM-DD`; on a parse failure the app uses today's date.
-- String values reach the app URL-decoded (UTF-8). Encode them with a real code tool (`urllib.parse.quote` / `encodeURIComponent`) for an all-ASCII link. Without a code tool, write non-ASCII text (Chinese / Japanese) raw and encode only spaces as `%20` — the browser percent-encodes the rest on tap. **Never hand-write `%XX` bytes for non-ASCII characters from memory**: LLM-recalled byte sequences are frequently wrong and produce mojibake in the app.
+- String values reach the app URL-decoded (UTF-8). Encode them with a real code tool (`urllib.parse.quote` / `encodeURIComponent`) for an all-ASCII link. Without a code tool, write non-ASCII text (Chinese / Japanese) raw — the browser percent-encodes it on tap — but DO encode the reserved ASCII characters (fixed single-byte mappings): space → `%20`, `&` → `%26`, `#` → `%23`, `+` → `%2B`, `%` → `%25`. **Never hand-write `%XX` bytes for non-ASCII characters from memory**: LLM-recalled byte sequences are frequently wrong and produce mojibake in the app.
 
 ## Rounding
 
