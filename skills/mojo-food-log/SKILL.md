@@ -59,13 +59,14 @@ Follow the table with 1–2 sentences of nutrition tips relevant to the specific
 Round all values to integers. Combine all items from one meal into **one link** with a combined `foodName`.
 
 ```
-[Import to mojo](https://api.mojoapp.ai/nutrition/add?calories={kcal}&protein={protein_g}&carbs={carbs_g}&fat={fat_g}&fiber={fiber_g}&foodName={url_encoded_name}&mealType={breakfast|lunch|dinner|snack}&date={YYYY-MM-DD})
+[Import to mojo](https://api.mojoapp.ai/nutrition/add?calories={kcal}&protein={protein_g}&carbs={carbs_g}&fat={fat_g}&fiber={fiber_g}&mealType={breakfast|lunch|dinner|snack}&date={YYYY-MM-DD}&foodName={food_name})
 ```
 
 Rules:
 - `calories` is the only required parameter and must be > 0.
 - `date` defaults to today in `YYYY-MM-DD`.
-- `foodName` must be URL-encoded. Chinese characters work fine when encoded.
+- `foodName` encoding: URL-encode it with a real tool — e.g. `python3 -c "from urllib.parse import quote; print(quote('雞腿便當'))"` or `node -e "console.log(encodeURIComponent('雞腿便當'))"` — which yields an all-ASCII URL. No code tool available? Write non-ASCII text (e.g. Chinese) as-is and only encode spaces as `%20`; the browser encodes the rest correctly on tap. **NEVER hand-write `%XX` bytes for non-ASCII characters from memory** — LLM-recalled byte sequences are frequently wrong and silently corrupt the food name.
+- Keep `foodName` as the **last** query parameter, so the numeric parameters survive if a chat client truncates the link mid-URL.
 - **One meal = one link.** A bento with rice, protein, and sides is one meal. Only produce multiple links if the user explicitly logged separate meals.
 
 For the full parameter spec, see `references/deep-link-spec.md`.

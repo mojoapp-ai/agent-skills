@@ -13,11 +13,11 @@ https://api.mojoapp.ai/nutrition/add
     &fiber=<number, g>              # optional, ≥ 0
     &sugar=<number, g>              # optional, ≥ 0
     &sodium=<number, mg>            # optional, ≥ 0
-    &foodName=<string, url-encoded> # optional, free text
     &mealType=<breakfast|lunch|dinner|snack>  # optional; falls back to breakfast
     &date=<YYYY-MM-DD>              # optional, defaults to today on the device
     &servingSize=<number>           # optional, ≥ 0
     &servingUnit=<string>           # optional; common values: "g", "ml", "servings"
+    &foodName=<string, free text>   # optional; keep LAST so numeric params survive link truncation
 ```
 
 ## Validation rules in the app
@@ -26,7 +26,7 @@ https://api.mojoapp.ai/nutrition/add
 - All numeric fields are decimal numbers. Negative values are silently dropped.
 - `mealType` must be one of the four enum values; anything else falls back to `breakfast`.
 - `date` must be ISO `YYYY-MM-DD`; on a parse failure the app uses today's date.
-- All string values must be standard URL-encoded (`%20` for space, etc.). Chinese / Japanese characters work fine when encoded.
+- String values reach the app URL-decoded (UTF-8). Encode them with a real code tool (`urllib.parse.quote` / `encodeURIComponent`) for an all-ASCII link. Without a code tool, write non-ASCII text (Chinese / Japanese) raw and encode only spaces as `%20` — the browser percent-encodes the rest on tap. **Never hand-write `%XX` bytes for non-ASCII characters from memory**: LLM-recalled byte sequences are frequently wrong and produce mojibake in the app.
 
 ## Rounding
 
@@ -63,11 +63,11 @@ For an AI agent embedding the link in a chat reply, the web-redirect form is the
 A simple breakfast:
 
 ```
-https://api.mojoapp.ai/nutrition/add?calories=320&protein=18&carbs=42&fat=9&foodName=Oatmeal%20with%20banana&mealType=breakfast
+https://api.mojoapp.ai/nutrition/add?calories=320&protein=18&carbs=42&fat=9&mealType=breakfast&foodName=Oatmeal%20with%20banana
 ```
 
-A Taiwanese lunchbox (combined totals, Chinese name URL-encoded):
+A Taiwanese lunchbox (combined totals; raw Chinese food name — the browser encodes it on tap, or use a code tool to emit the all-ASCII form):
 
 ```
-https://api.mojoapp.ai/nutrition/add?calories=720&protein=38&carbs=85&fat=24&fiber=6&foodName=%E9%9B%9E%E8%85%BF%E4%BE%BF%E7%95%B6&mealType=lunch&date=2026-05-27
+https://api.mojoapp.ai/nutrition/add?calories=720&protein=38&carbs=85&fat=24&fiber=6&mealType=lunch&date=2026-05-27&foodName=雞腿便當
 ```
