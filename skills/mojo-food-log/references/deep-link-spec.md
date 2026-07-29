@@ -26,7 +26,7 @@ https://api.mojoapp.ai/nutrition/add
 - All numeric fields are decimal numbers. Negative values are silently dropped.
 - `mealType` must be one of the four enum values; anything else falls back to `breakfast`.
 - `date` must be ISO `YYYY-MM-DD`; on a parse failure the app uses today's date.
-- String values reach the app URL-decoded (UTF-8). Encode them with a real code tool (`urllib.parse.quote` / `encodeURIComponent`) for an all-ASCII link. Without a code tool, write non-ASCII text (Chinese / Japanese) raw — the browser percent-encodes it on tap — but DO encode the reserved ASCII characters (fixed single-byte mappings): space → `%20`, `&` → `%26`, `#` → `%23`, `+` → `%2B`, `%` → `%25`. **Never hand-write `%XX` bytes for non-ASCII characters from memory**: LLM-recalled byte sequences are frequently wrong and produce mojibake in the app.
+- String values reach the app URL-decoded (UTF-8). Emit the link as a markdown link whose URL is wrapped in angle brackets — `[Import to mojo](<https://...&foodName=雞腿便當>)` — and write string values as **plain text** (non-ASCII as-is, spaces as-is). The bracketed destination is CommonMark: the renderer percent-encodes spaces and non-ASCII correctly on render/tap. **Never rewrite any character as a `%XX` escape yourself**: LLM-recalled byte sequences are frequently wrong and produce mojibake in the app. If a value contains `&`, `#` or `+`, spell it out in words (e.g. `fish & chips` → `fish and chips`) — those two/three characters are the only ones the renderer will not neutralize inside a query value.
 
 ## Rounding
 
@@ -60,14 +60,14 @@ For an AI agent embedding the link in a chat reply, the web-redirect form is the
 
 ## Examples
 
-A simple breakfast:
+A simple breakfast (spaces stay as-is inside the bracketed destination):
 
 ```
-https://api.mojoapp.ai/nutrition/add?calories=320&protein=18&carbs=42&fat=9&mealType=breakfast&foodName=Oatmeal%20with%20banana
+[Import to mojo](<https://api.mojoapp.ai/nutrition/add?calories=320&protein=18&carbs=42&fat=9&mealType=breakfast&foodName=Oatmeal with banana>)
 ```
 
 A Taiwanese lunchbox (combined totals, raw Chinese food name):
 
 ```
-https://api.mojoapp.ai/nutrition/add?calories=720&protein=38&carbs=85&fat=24&fiber=6&mealType=lunch&date=2026-05-27&foodName=雞腿便當
+[Import to mojo](<https://api.mojoapp.ai/nutrition/add?calories=720&protein=38&carbs=85&fat=24&fiber=6&mealType=lunch&date=2026-05-27&foodName=雞腿便當>)
 ```
