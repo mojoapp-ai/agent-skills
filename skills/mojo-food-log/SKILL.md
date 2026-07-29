@@ -66,7 +66,7 @@ Rules:
 - `calories` is the only required parameter and must be > 0.
 - `date` defaults to today in `YYYY-MM-DD`.
 - Wrap the URL in a pair of angle brackets `(<https://...>)` exactly as shown above. This is CommonMark's bracketed link destination: it keeps the link valid when `foodName` contains spaces or non-ASCII text, and the markdown renderer percent-encodes those characters correctly on render/tap.
-- Write `foodName` as **plain text**, exactly as you named the meal in your reply (Chinese as-is, spaces as-is). **NEVER rewrite any character as a `%XX` escape** — encoding is the renderer's job, and LLM-recalled byte sequences are frequently wrong and silently corrupt the food name. If the name contains `&`, `#` or `+`, spell it out in words instead (e.g. `fish & chips` → `fish and chips`).
+- Write `foodName` as **plain text**, exactly as you named the meal in your reply (Chinese as-is, spaces as-is). **NEVER rewrite any character as a `%XX` escape** — encoding is the renderer's job, and LLM-recalled byte sequences are frequently wrong and silently corrupt the food name. If the name contains `&`, `#`, `+`, `<` or `>`, spell it out in words in BOTH your reply and the link, so the two still match (e.g. `fish & chips` → `fish and chips`, `yogurt <5% fat` → `yogurt under 5% fat`) — `&`/`#`/`+` break query parsing, and a literal `<`/`>` breaks the bracketed destination itself.
 - Keep `foodName` as the **last** query parameter, so the numeric parameters survive if a chat client truncates the link mid-URL.
 - **One meal = one link.** A bento with rice, protein, and sides is one meal. Only produce multiple links if the user explicitly logged separate meals.
 
