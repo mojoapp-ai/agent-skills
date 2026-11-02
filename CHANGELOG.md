@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased]
 
 ### Added
+- `skills/mojo-ai-agent/` — turns photos, InBody / smart-scale screenshots, and descriptions into mojo import links for all seven record types (meals, body measurements, visceral fat, waist, water, GLP-1 injections, symptoms). Each link is given twice, as a URL in a code block to paste into mojo and as a tappable link, with Gemini-specific hint lines and free-text encoding.
 - `.claude/skills/release/` — internal skill that cuts a SemVer-tagged release from main, classifies commits, updates CHANGELOG.md, tags, pushes, and opens a GitHub Release.
 - `.claude/skills/nextra-update/` — internal skill that mirrors `mojo-apps/nextra/content/` into `skills/mojo-app-docs/references/`.
 
