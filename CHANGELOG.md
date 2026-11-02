@@ -22,4 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `skills/mojo-glp1-knowledge/references/zepbound-knowledge.md` — Zepbound consolidated reference (tirzepatide for chronic weight management + OSA; same active as Mounjaro but distinct label).
 - `skills/mojo-glp1-knowledge/references/saxenda-knowledge.md` — Saxenda (善纖達) consolidated reference (liraglutide, once-daily multi-dose pen; ~13h half-life vs weekly agents).
 
+### Removed
+- `skills/mojo-food-log/` — replaced by `skills/mojo-ai-agent/`, which logs meals as well as the other six record types. Its links used angle-bracket destinations, which the current ChatGPT app drops.
+
 [Unreleased]: https://github.com/mojoapp-ai/agent-skills/compare/HEAD...HEAD

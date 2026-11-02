@@ -67,7 +67,7 @@ Insert a new section just below the `## [Unreleased]` header (create both if mis
 ## [0.2.0] — 2026-06-15
 
 ### Added
-- mojo-food-log: support importing fiber-only entries (#42)
+- mojo-ai-agent: support importing fiber-only entries (#42)
 
 ### Fixed
 - mojo-glp1-knowledge: corrected Wegovy half-life from 7d to 165h
