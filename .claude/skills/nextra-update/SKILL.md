@@ -114,7 +114,7 @@ Report:
 
 - It does not transform, translate, or edit the docs in any way. What's in `nextra/content/` lands in `references/` byte-for-byte.
 - It does not run a release. The release skill handles versioning and changelog separately.
-- It does not modify any other skill (`mojo-food-log`, `mojo-glp1-knowledge`, `.claude/`).
+- It does not modify any other skill (`mojo-ai-agent`, `mojo-glp1-knowledge`, `.claude/`).
 
 ## When to stop and ask
 

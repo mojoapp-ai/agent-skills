@@ -10,22 +10,11 @@
 
 ---
 
-[mojo](https://mojoapp.ai) is a weight-loss tracker purpose-built for GLP-1 medications (Mounjaro, Ozempic, Wegovy, Zepbound). This repository ships four small **skills** you can drop into your own AI agent (Claude Code, OpenClaw, or any runtime that loads `SKILL.md` files).
+[mojo](https://mojoapp.ai) is a weight-loss tracker purpose-built for GLP-1 medications (Mounjaro, Ozempic, Wegovy, Zepbound). This repository ships three small **skills** you can drop into your own AI agent (Claude Code, OpenClaw, or any runtime that loads `SKILL.md` files).
 
 Each skill is plain text. No API calls. No telemetry. Nothing happens to your mojo account unless you tap a link the skill generates.
 
 ## The skills
-
-### [`/mojo-food-log`](skills/mojo-food-log/) — analyze a meal, log it to mojo
-
-When you upload a food photo or describe what you ate, the agent acts as a registered dietitian — estimates calories + macros + fiber, presents a nutrition table, and produces a one-tap **Import to mojo** link.
-
-> **You:** I had a chicken bento for lunch — rice, fried thigh, green vegetables.
->
-> **Agent:** *[nutrition table with per-item breakdown, confidence range, cooking method adjustments…]*
-> [Import to mojo](https://api.mojoapp.ai/nutrition/add?calories=735&...)
-
-The skill handles language detection, meal type inference (from explicit mention or time-of-day fallback), hidden calorie checks, and link generation — all in one flow.
 
 ### [`/mojo-ai-agent`](skills/mojo-ai-agent/) — log anything to mojo from a photo, a screenshot, or a sentence
 
@@ -61,17 +50,13 @@ The full user-facing documentation site (the same one at [docs.mojoapp.ai](https
 
 Copy one of the prompts below and paste it to your AI agent (Claude Code, OpenClaw, or any agent that loads `SKILL.md` files).
 
-**Install all four skills:**
+**Install all three skills:**
 
 ```
 Install the mojo agent skills from https://github.com/mojoapp-ai/agent-skills
 ```
 
 **Or install one at a time:**
-
-```
-Install the mojo food log skill from https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-food-log
-```
 
 ```
 Install the mojo AI agent skill from https://github.com/mojoapp-ai/agent-skills/tree/main/skills/mojo-ai-agent
