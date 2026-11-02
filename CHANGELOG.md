@@ -12,10 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `.claude/skills/nextra-update/` — internal skill that mirrors `mojo-apps/nextra/content/` into `skills/mojo-app-docs/references/`.
 
 ### Changed
+- `skills/mojo-food-log` — encoding rules hardened against LLM mojibake: URL-encode `foodName` with a real code tool (or write non-ASCII raw as fallback), never hand-write `%XX` bytes from memory; `foodName` moved to the last query parameter so numeric params survive link truncation. Same root cause as fixed in mojo-apps prompts (PR #623 there).
 - `skills/mojo-glp1-knowledge/references/mounjaro-kwikpen.md` — rewritten in English with inline Traditional / Simplified Chinese glosses on first occurrence (brand name, generic name, patient-facing terms). Same factual content, internationalised for English-speaking agents reading the reference.
-
-### Removed
-- `skills/mojo-food-log/` — replaced by `skills/mojo-ai-agent/`, which logs meals as well as the other six record types. Its links used angle-bracket destinations, which the current ChatGPT app drops.
 
 ### Added (knowledge references)
 - `skills/mojo-glp1-knowledge/references/ozempic-knowledge.md` — Ozempic (胰妥讚 / 诺和泰) consolidated reference (semaglutide, T2D + CV/renal). Consolidated across FDA DailyMed, EMA SmPC, TFDA records, and community pattern review; reconciled US vs EMA storage windows.
@@ -23,5 +21,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `skills/mojo-glp1-knowledge/references/rybelsus-knowledge.md` — Rybelsus (瑞倍適) consolidated reference (oral semaglutide tablet; strict empty-stomach + 30-min wait protocol).
 - `skills/mojo-glp1-knowledge/references/zepbound-knowledge.md` — Zepbound consolidated reference (tirzepatide for chronic weight management + OSA; same active as Mounjaro but distinct label).
 - `skills/mojo-glp1-knowledge/references/saxenda-knowledge.md` — Saxenda (善纖達) consolidated reference (liraglutide, once-daily multi-dose pen; ~13h half-life vs weekly agents).
+
+### Removed
+- `skills/mojo-food-log/` — replaced by `skills/mojo-ai-agent/`, which logs meals as well as the other six record types. Its links used angle-bracket destinations, which the current ChatGPT app drops.
 
 [Unreleased]: https://github.com/mojoapp-ai/agent-skills/compare/HEAD...HEAD
