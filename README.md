@@ -39,7 +39,7 @@ Send an InBody or smart-scale screenshot, a food photo, or a line like "weighed 
 >
 > **Visceral fat** — [Import to mojo](https://api.mojoapp.ai/visceral-fat/add?level=9&...)
 
-It works without an agent too: paste the contents of [`SKILL.md`](skills/mojo-ai-agent/SKILL.md) into ChatGPT, Claude, or Gemini (or save it as a custom GPT, Project, or Gem), then send your photos. In the Gemini app it writes links that survive Gemini's redirect pages.
+It works without an agent too: paste the contents of [`SKILL.md`](skills/mojo-ai-agent/SKILL.md) at the start of a chat in ChatGPT, Claude, or Gemini, then send your photos. In the Gemini app it also tells you how to get past Google's Redirect Notice (on iPhone, long-press the link).
 
 ### [`/mojo-glp1-knowledge`](skills/mojo-glp1-knowledge/) — your knowledgeable peer for GLP-1 questions
 
@@ -91,7 +91,7 @@ Install the mojo app guide skill from https://github.com/mojoapp-ai/agent-skills
 
 - ❌ No API calls.
 - ❌ No telemetry. No usage reporting.
-- ❌ No data leaves your agent, ever.
+- ❌ No data leaves your agent unless you tap a link a skill generates; a link carries only the values written in it to mojo (in Gemini, through Google's redirect).
 - ✅ Each skill is one or more markdown files. You can read every byte before you install.
 
 ---
